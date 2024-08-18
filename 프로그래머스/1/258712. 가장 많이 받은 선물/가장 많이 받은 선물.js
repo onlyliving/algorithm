@@ -1,5 +1,6 @@
 function solution(friends, gifts) {
     /*
+    * 이 문제는 한번 더 봐야 할 듯
     * 다음달에 가장 많은 선물을 받는 친구가 받을 선물을 수를 return
     */
     
@@ -32,21 +33,13 @@ function solution(friends, gifts) {
     
     // 다음달 선물 계산
     for (let i = 0; i < friendsLength; i ++) {
-      for (let j = i+1; j < friendsLength; j ++) {
-            console.log("i, j", i, j)
-            if (i === j) continue;
+      for (let j = 0; j < friendsLength; j ++) {
+ 
             if (giftTable[i][j] > giftTable[j][i]) {
                 nextMonth[i]++;
-            }   
-            if (giftTable[i][j] < giftTable[j][i]) {
-                nextMonth[j]++;
-            } 
-            if(giftTable[i][j] === giftTable[j][i]) {
+            } else if(giftTable[i][j] === giftTable[j][i]) {
                 if (rankInfo[i] > rankInfo[j]) {
                     nextMonth[i]++;
-                }
-                if (rankInfo[i] < rankInfo[j]) {
-                    nextMonth[j]++;
                 }
             }
         }     
